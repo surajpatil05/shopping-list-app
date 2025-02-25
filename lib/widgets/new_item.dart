@@ -32,7 +32,7 @@ class _NewItemState extends State<NewItem> {
       });
 
       // send "post" request to add data to the Firebase database
-      final url = Uri.https('flutter-prep-b54cf-default-rtdb.firebaseio.com',
+      final url = Uri.https('shoppinglistapp-be00d-default-rtdb.firebaseio.com',
           'shopping-list.json');
       final response = await http.post(
         url,
@@ -48,8 +48,8 @@ class _NewItemState extends State<NewItem> {
         ),
       );
 
-      print(response.body);
-      print(response.statusCode);
+      debugPrint(response.body);
+      debugPrint(response.statusCode.toString());
 
       if (context.mounted) {
         Map<String, dynamic> resData = json.decode(response.body);

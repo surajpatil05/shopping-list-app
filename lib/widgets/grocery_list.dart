@@ -29,15 +29,15 @@ class _GroceryListState extends State<GroceryList> {
 
   void _loadItems() async {
     // load the items in the app using the "get" request
-    final url = Uri.https(
-        'flutter-prep-b54cf-default-rtdb.firebaseio.com', 'shopping-list.json');
+    final url = Uri.https('shoppinglistapp-be00d-default-rtdb.firebaseio.com',
+        'shopping-list.json');
 
     // try and catch block to catch any errors if no internet connection and data is not fetched from the database
 
     try {
       final response = await http.get(url);
 
-      // error response handelling
+      // error response handling
       if (response.statusCode >= 400) {
         throw Exception(
             'Failed to fetch grocery items. Please try again later.');
@@ -110,7 +110,7 @@ class _GroceryListState extends State<GroceryList> {
     });
 
     // delete items from the list with the "delete" response
-    final url = Uri.https('flutter-prep-b54cf-default-rtdb.firebaseio.com',
+    final url = Uri.https('shoppinglistapp-be00d-default-rtdb.firebaseio.com',
         'shopping-list/${item.id}.json');
     final response = await http.delete(url);
 
